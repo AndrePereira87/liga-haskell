@@ -4,7 +4,7 @@ Projeto semestral desenvolvido no âmbito da unidade curricular de **Programaç�
 
 ## Identificação da Equipa
 - **André Tomás Pereira**
-- **Rodrigo**
+- **Rodrigo Pereira Alves**
 - **Hugo**
 
 ## Objetivo do Projeto
