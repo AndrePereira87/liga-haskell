@@ -5,7 +5,7 @@ Projeto semestral desenvolvido no âmbito da unidade curricular de **Programaç�
 ## Identificação da Equipa
 - **André Tomás Pereira**
 - **Rodrigo Pereira Alves**
-- **Hugo**
+- **Hugo Daniel Sousa Lázaro**
 
 ## Objetivo do Projeto
 O objetivo do projeto é conceber um sistema funcional puro de gestão de campeonatos desportivos, modelando equipas, jornadas, resultados e a computação da tabela classificativa e estatísticas através de técnicas de Programação Funcional (tipos algébricos, funções puras, recursão e agregações).
