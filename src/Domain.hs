@@ -64,3 +64,29 @@ contarVitoriasRec targetId (j:js)
   | idCasa j == targetId && resultadoJogo j == VitoriaCasa = 1 + contarVitoriasRec targetId js
   | idFora j == targetId && resultadoJogo j == VitoriaFora = 1 + contarVitoriasRec targetId js
   | otherwise                                             = contarVitoriasRec targetId js
+
+-- | Critério de desempate desportivo com Guards:
+-- 1. Mais pontos
+-- 2. Maior diferença de golos
+-- 3. Mais golos marcados
+melhorClassificada :: LinhaTabela -> LinhaTabela -> Bool
+melhorClassificada a b
+  | totalPontos a /= totalPontos b       = totalPontos a > totalPontos b
+  | diferencaGolos a /= diferencaGolos b = diferencaGolos a > diferencaGolos b
+  | otherwise                            = golosMarcados a >= golosMarcados b
+
+-- | Insere recursivamente uma LinhaTabela na posição correta de uma lista ordenada (Insertion Sort)
+-- Caso base: lista vazia ([]) -> [x]
+-- Caso recursivo: se x for melhor classificada que y, insere à cabeça; senão recursão no resto
+inserirOrdenadoRec :: LinhaTabela -> [LinhaTabela] -> [LinhaTabela]
+inserirOrdenadoRec x [] = [x]
+inserirOrdenadoRec x (y:ys)
+  | melhorClassificada x y = x : y : ys
+  | otherwise              = y : inserirOrdenadoRec x ys
+
+-- | Ordena recursivamente uma tabela classificativa pelo algoritmo Insertion Sort
+-- Caso base: lista vazia ([]) -> []
+-- Caso recursivo: insere recursivamente a cabeça na cauda já ordenada
+ordenarTabelaRec :: [LinhaTabela] -> [LinhaTabela]
+ordenarTabelaRec []     = []
+ordenarTabelaRec (x:xs) = inserirOrdenadoRec x (ordenarTabelaRec xs)
